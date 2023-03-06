@@ -246,7 +246,7 @@ class IniConfig:
 
     @staticmethod
     def from_section_directives(
-        sections: list[tuple[str, list[Directive | tuple[str, str]]]]
+        *sections: list[tuple[str, list[Directive | tuple[str, str]]]]
     ):
         return IniConfig(
             [
@@ -395,12 +395,10 @@ class IniConfig:
 
 if __name__ == "__main__":
     config = IniConfig.from_section_directives(
-        [
-            (
-                "Interface",
-                [("Address", "10.200.100.8/24"), ("PrivateKey", "XXXX")],
-            )
-        ]
+        (
+            "Interface",
+            [("Address", "10.200.100.8/24"), ("PrivateKey", "XXXX")],
+        )
     )
     section = Section.from_directives(
         "Peer", [("PublicKey", "YYYY"), ("Endpoint", "demo.wireguard.com:51820")]

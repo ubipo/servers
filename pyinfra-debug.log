@@ -1,0 +1,16 @@
+  File "/data/projects/servers/pyinfra/env-pyinfra/lib/python3.10/site-packages/pyinfra_cli/main.py", line 223, in cli
+    _main(*args, **kwargs)
+  File "/data/projects/servers/pyinfra/env-pyinfra/lib/python3.10/site-packages/pyinfra_cli/main.py", line 600, in _main
+    run_ops(state, serial=serial, no_wait=no_wait)
+  File "/data/projects/servers/pyinfra/env-pyinfra/lib/python3.10/site-packages/pyinfra/api/operations.py", line 419, in run_ops
+    _run_single_op(state, op_hash)
+  File "/data/projects/servers/pyinfra/env-pyinfra/lib/python3.10/site-packages/pyinfra/api/operations.py", line 383, in _run_single_op
+    if not greenlet.get():
+  File "src/gevent/greenlet.py", line 803, in gevent._gevent_cgreenlet.Greenlet.get
+  File "src/gevent/greenlet.py", line 371, in gevent._gevent_cgreenlet.Greenlet._raise_exception
+  File "/data/projects/servers/pyinfra/env-pyinfra/lib/python3.10/site-packages/gevent/_compat.py", line 65, in reraise
+    raise value.with_traceback(tb)
+  File "src/gevent/greenlet.py", line 906, in gevent._gevent_cgreenlet.Greenlet.run
+  File "/data/projects/servers/pyinfra/env-pyinfra/lib/python3.10/site-packages/pyinfra/api/operations.py", line 119, in run_host_op
+    executor_kwargs.update(command.executor_kwargs)
+AttributeError: 'generator' object has no attribute 'executor_kwargs'

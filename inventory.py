@@ -1,6 +1,11 @@
 from getpass import getpass
 from ipaddress import IPv6Network
+from pathlib import Path
+import sys
 
+
+# Necessary to make imports from deploy scripts work
+sys.path.append(Path(__file__).parent)
 
 passwords = {}
 
@@ -15,6 +20,7 @@ hosts = [
     (
         "cannelloni",
         {
+            "fqdn": "cannelloni.pfiers.net",
             "ssh_hostname": "10.0.0.20",
             "ssh_user": "root",
             "ssh_password": password_for("cannelloni"),
@@ -34,6 +40,7 @@ hosts = [
     (
         "linguine",
         {
+            "fqdn": "linguine.pfiers.net",
             "ssh_hostname": "167.235.58.79",
             "ssh_user": "root",
             "ssh_password": password_for("linguine"),
@@ -49,6 +56,8 @@ nginx_http_upstream_hosts = ["cannelloni"]
 nginx_http_proxy_hosts = ["linguine"]
 
 app_hosts = ["cannelloni"]
+
+zabbix_agent_hosts = ["cannelloni", "linguine"]
 
 # Generated from cannelloni enp2s0 with https://cd34.com/rfc4193/
 ULA_NET = IPv6Network("fd61:1b78:37c8::/48")
