@@ -35,6 +35,7 @@ def run():
                 ("Restart", "on-failure"),
             ],
         ),
+        ("Install", [("WantedBy", "multi-user.target")]),
     )
     files.put(
         unit_file.to_string_io(),
