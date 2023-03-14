@@ -177,6 +177,7 @@ def setup_follower_renewal():
                 ("ExecStart", "syncthing-hooks"),
             ],
         ),
+        ("Install", [("WantedBy", "multi-user.target")]),
     )
     unit_path = SYSTEMD_FILE_BASE.with_suffix(".service")
     files.put(
